@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Input, Button } from 'antd';
 import './index.css'
 import { PlusOutlined } from '@ant-design/icons';
-import axios from 'axios';
+// import axios from 'axios';
 // import fs from 'fs';
 
 const InputForm = () => {
@@ -40,26 +40,38 @@ const InputForm = () => {
 
   const handleSubmit = () => {
 
-    const url = "http://3.23.99.16:8000/getAudio/";
+    // const url = "http://3.23.99.16:8000/getAudio/";
+    const url = "/getAudio/";
     const data = inputs;
-    
+
+    // console.log(data);
     fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     })
       .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('请求失败。');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
+        return response.blob(); // 返回一个Promise，将响应数据解析为Blob对象
       })
-      .then(result => {
-        // 处理响应数据
-        console.log('响应数据：', result);
+      .then(blobData => {
+        // 从Blob对象创建URL
+        const audioUrl = URL.createObjectURL(blobData);
+
+        // 创建一个隐藏的链接，用于下载音频文件
+        const downloadLink = document.createElement('a');
+        downloadLink.href = audioUrl;
+        downloadLink.download = 'audio.mp3'; // 设置下载文件的名称
+        document.body.appendChild(downloadLink);
+        downloadLink.click(); // 触发下载
+        document.body.removeChild(downloadLink); // 移除隐藏的链接
+
+        // 释放URL对象
+        URL.revokeObjectURL(audioUrl);
       })
       .catch(error => {
         console.error('请求错误：', error);
