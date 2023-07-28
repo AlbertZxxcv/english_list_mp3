@@ -47,8 +47,10 @@ const InputForm = () => {
     // console.log(data);
     fetch(url, {
       method: 'POST',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
+        'Origin': 'https://main.d1dvn78d7wazol.amplifyapp.com'
       },
       body: JSON.stringify(data)
     })
