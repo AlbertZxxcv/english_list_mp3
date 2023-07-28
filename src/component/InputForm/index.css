@@ -1,0 +1,50 @@
+.input-form-body{
+    width: 80%;
+    margin-left: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.input-area{
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.input-field{
+    height: 40px;
+}
+
+.input-button{
+    margin-left: 20px;
+}
+
+.record-area{
+    height: 60%;
+}
+
+.records{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 每行有 5 列，每列平均占据可用空间 */
+    gap: 10px; /* 行与行之间的间隔为 10px */
+}
+
+.record{
+    height: 30px;
+}
+
+.submit-area{
+    height: 20%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.submit-button{
+    height: 30px;
+}

@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+
+.body{
+  width: 100%;
+  height: 100vh; /* 设置 wrapper 的最小高度为视口高度 */
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #7dbcea;
+  height: 10%;
+}
+
+
+.middle{
+  height: 80vh;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.content{
+  background-color: white;
+  flex: 1;
+}
+
+.sider{
+  right: 0;
+  width: 20%; /* 设置 sider 的宽度占屏幕宽度的百分之5 */
+  text-align: center;
+  background-color: #3ba0e9;
+}
+
+
+.footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7dbcea;
+  height: 10%;
+  flex-direction: column;
+}
+
+.footer-content{
+  margin-top: 10px;
+}
