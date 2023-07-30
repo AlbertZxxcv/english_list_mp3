@@ -19,7 +19,7 @@ http {
         server_name  localhost;
 
         location / {
-            root   /home/ease/build;    # 这是我们打包好React的目录放在这里
+            root   /home/ubuntu/english_list_mp3/build;    # 这是我们打包好React的目录放在这里
             index  index.html index.htm;
         }
 

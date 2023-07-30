@@ -40,7 +40,7 @@ const InputForm = () => {
 
   const handleSubmit = () => {
 
-    const url = "https://3.23.99.16:8000/getAudio/";
+    const url = "http://3.23.99.16:8000/getAudio/";
     // const url = "/getAudio/";
     const data = inputs;
 
